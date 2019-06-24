@@ -103,7 +103,7 @@ controller.init(view, model)
 视图与控制器间的过于紧密的连接，不利于View的组件化，即可复用性低
 视图对模型数据的低效率访问
 没有UI环境，Controller的单元测试变得困难
-3. MVP（MVC 的改良）
+# 3. MVP（MVC 的改良）
 
 MVP与MVC最大的区别就用Presenter将Model和View隔开了，不允许其互相直接通信，所有的消息都是通过Presenter这个中间人来传递。
 如下图所示：
@@ -111,7 +111,8 @@ MVP与MVC最大的区别就用Presenter将Model和View隔开了，不允许其�
 
 缺点：
 View层和Presenter层是通过接口连接，在复杂的界面中，维护过多接口的成本很大
-View和Presenter层的交互会过于频繁，二者联系太过紧密4. MVVM（MVP 的改良）
+View和Presenter层的交互会过于频繁，二者联系太过紧密
+# 4. MVVM（MVP 的改良）
 
 MVVM代表的是Model-View-ViewModel，将MVP中的P换成VM（视图模型），它的依赖关系和MVP是一样的
 MVVM把View和Model的同步逻辑通过binder自动化了。MVP的Presenter负责的View和Model同步不再需要手动操作，而是交由框架所提供的Binder进行负责
