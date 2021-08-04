@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>css布局 | pegerys&#39; Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="pergeryfly,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript">
+  
+
+  <meta name="description" content="左右布局浮动 这里使用了浮动来实现左右布局。1234&amp;lt;body&amp;gt;  &amp;lt;div class=&amp;quot;left&amp;quot;&amp;gt;左边&amp;lt;/div&amp;gt;  &amp;lt;div class=&amp;quot;right&amp;quot;&amp;gt;右边&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt; 123456789101112131415161718.left&amp;#123;  float:">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css布局">
+<meta property="og:url" content="http://yoursite.com/2019/01/10/css布局/index.html">
+<meta property="og:site_name" content="pegerys&#39; Hexo">
+<meta property="og:description" content="左右布局浮动 这里使用了浮动来实现左右布局。1234&amp;lt;body&amp;gt;  &amp;lt;div class=&amp;quot;left&amp;quot;&amp;gt;左边&amp;lt;/div&amp;gt;  &amp;lt;div class=&amp;quot;right&amp;quot;&amp;gt;右边&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt; 123456789101112131415161718.left&amp;#123;  float:">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/01/10/css布局/css布局/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/01/10/css布局/css布局/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/01/10/css布局/css布局/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/01/10/css布局/css布局/4.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/01/10/css布局/css布局/5.jpg">
+<meta property="og:updated_time" content="2021-07-30T03:04:48.163Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css布局">
+<meta name="twitter:description" content="左右布局浮动 这里使用了浮动来实现左右布局。1234&amp;lt;body&amp;gt;  &amp;lt;div class=&amp;quot;left&amp;quot;&amp;gt;左边&amp;lt;/div&amp;gt;  &amp;lt;div class=&amp;quot;right&amp;quot;&amp;gt;右边&amp;lt;/div&amp;gt;&amp;lt;/body&amp;gt; 123456789101112131415161718.left&amp;#123;  float:">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/10/css布局/css布局/1.jpg">
+
+  
+
+  
+    <link rel="icon" href="/images/avatar.jpg">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#左右布局"><span class="toc-text">左右布局</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#浮动"><span class="toc-text">浮动</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#定位"><span class="toc-text">定位</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#左中右布局"><span class="toc-text">左中右布局</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#水平居中"><span class="toc-text">水平居中</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#垂直居中"><span class="toc-text">垂直居中</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#等其他小技巧"><span class="toc-text">等其他小技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#让我来用absolute布局上下文下的水平垂直居中"><span class="toc-text">让我来用absolute布局上下文下的水平垂直居中</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-css布局" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">css布局</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.01.10</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>pergery peng</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="左右布局"><a href="#左右布局" class="headerlink" title="左右布局"></a>左右布局</h1><h2 id="浮动"><a href="#浮动" class="headerlink" title="浮动"></a>浮动</h2><hr>
+<p>这里使用了<strong>浮动</strong>来实现左右布局。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div class=&quot;left&quot;&gt;左边&lt;/div&gt;</span><br><span class="line">  &lt;div class=&quot;right&quot;&gt;右边&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">.left&#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: 30%;</span><br><span class="line">  height: 600px;</span><br><span class="line">  background: red;</span><br><span class="line">  text-align: center;</span><br><span class="line">  line-height: 600px;</span><br><span class="line">  color: #fff;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.right&#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width: 70%;</span><br><span class="line">  height: 600px;</span><br><span class="line">  background: yellow;</span><br><span class="line">  text-align: center;</span><br><span class="line">  line-height: 600px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>显示效果</strong><br><img src="css布局/1.jpg" alt><br>浮动为什么会被使用在布局中呢？因为设置浮动后的元素会形成BFC（使得内部的元素不会被外部所干扰），并且元素的宽度也不再自适应父元素宽度，而是适应自身内容。这样就可以，轻松地实现多栏布局的效果。<br>类似于ps中的图层一样，浮动的元素会在浮动层上面进行排布，而在原先文档流中的元素位置，会被以某种方式进行删除，但是还是会影响布局。如果做过浮动，但未做清除，那么将会造成<strong>高度塌陷</strong>的问题。而<strong>清除浮动</strong>，最常用的方法有两种:</p>
+<ul>
+<li>overflow: 将父元素的overflow，设置成hidden。</li>
+<li>after伪类：对子元素的after伪类进行设置。<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2></li>
+</ul>
+<hr>
+<p> 除了浮动以外，使用<strong>定位</strong>也可以实现同样的效果<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"> .left&#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  width: 400px;</span><br><span class="line">  height: 600px;</span><br><span class="line">  background: red;</span><br><span class="line">  text-align: center;</span><br><span class="line">  line-height: 600px;</span><br><span class="line">  color: #fff;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  position: absolute;</span><br><span class="line">  left:400px;</span><br><span class="line">  top:-600px;</span><br><span class="line">  width:400px;</span><br><span class="line">  height: 600px;</span><br><span class="line">  background: yellow;</span><br><span class="line">  text-align: center;</span><br><span class="line">  line-height: 600px;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>这是用的position定位实现的左右布局</p>
+<h1 id="左中右布局"><a href="#左中右布局" class="headerlink" title="左中右布局"></a>左中右布局</h1><hr>
+<p><strong>代码如下</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;left&quot;&gt;左边&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;middle&quot;&gt;中间&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;right&quot;&gt;右边&lt;/div&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">.left&#123;</span><br><span class="line">  float:left;</span><br><span class="line">  width: 400px;</span><br><span class="line">  height: 600px;</span><br><span class="line">  background: red;</span><br><span class="line">  text-align: center;</span><br><span class="line">  line-height: 600px;</span><br><span class="line">  color: green;</span><br><span class="line">&#125;</span><br><span class="line">.middle&#123; </span><br><span class="line">  float:left;</span><br><span class="line">  width:400px;</span><br><span class="line">  height: 600px;</span><br><span class="line">  background:green;</span><br><span class="line">  text-align: center;</span><br><span class="line">  line-height: 600px;</span><br><span class="line">  color: yellow;</span><br><span class="line">&#125;</span><br><span class="line">.right&#123;</span><br><span class="line">  float: left;</span><br><span class="line">  width:400px;</span><br><span class="line">  height: 600px;</span><br><span class="line">  background: yellow;</span><br><span class="line">  text-align: center;</span><br><span class="line">  line-height: 600px;</span><br><span class="line">  color:red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>显示效果</strong><br><img src="css布局/2.jpg" alt></p>
+<h1 id="水平居中"><a href="#水平居中" class="headerlink" title="水平居中"></a>水平居中</h1><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div class=&quot;left&quot;&gt;左边&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">.left&#123;</span><br><span class="line">  width: 30%;</span><br><span class="line">  height: 600px;</span><br><span class="line">  background: red;</span><br><span class="line">  text-align: center;</span><br><span class="line">  color: #fff;</span><br><span class="line">  margin:0 auto;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里使用<code>margin:0 auto</code>使整个盒子水平居中，使用<code>text-align: center;</code>属性，实现内容居中。<br><strong>显示效果</strong><br><img src="css布局/3.jpg" alt></p>
+<h1 id="垂直居中"><a href="#垂直居中" class="headerlink" title="垂直居中"></a>垂直居中</h1><hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;content&quot;&gt;垂直居中&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">@wrapWidth : 400px;</span><br><span class="line"></span><br><span class="line">.wrap&#123;</span><br><span class="line">  margin-left: auto;</span><br><span class="line">  margin-right: auto;</span><br><span class="line">  margin-top: 20px;</span><br><span class="line">  width: @wrapWidth;</span><br><span class="line">  height: @wrapWidth;</span><br><span class="line">  background-color: #ccc;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">.content&#123;</span><br><span class="line">  @contentWidth : 100px;</span><br><span class="line">  width: @contentWidth;</span><br><span class="line">  height: @contentWidth;</span><br><span class="line">  padding: (@wrapWidth - @contentWidth) / 2;</span><br><span class="line">  background-color: #fff;</span><br><span class="line">  background-clip:content-box;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>文本垂直居中使用<code>line-height</code>,令其值与<code>height</code>相同。<br>盒模型垂直居中使用<code>padding</code>填充来实现，当然使用<code>margin</code>也是同样的道理。<br><strong>显示效果</strong><br><img src="css布局/4.jpg" alt></p>
+<h1 id="等其他小技巧"><a href="#等其他小技巧" class="headerlink" title="等其他小技巧"></a>等其他小技巧</h1><hr>
+<h2 id="让我来用absolute布局上下文下的水平垂直居中"><a href="#让我来用absolute布局上下文下的水平垂直居中" class="headerlink" title="让我来用absolute布局上下文下的水平垂直居中"></a>让我来用absolute布局上下文下的水平垂直居中</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;body&gt;</span><br><span class="line">  &lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;ele margin&quot;&gt;水平垂直居中水平垂直&lt;br&gt;居中水平垂直居中水平&lt;br&gt;垂直居中水平垂直居&lt;br&gt;中水平垂直居中&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;ele translate&quot;&gt;水平垂直居中水平垂直&lt;br&gt;居中水平垂直居中水平&lt;br&gt;垂直居中水平垂直居&lt;br&gt;中水平垂直居中&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">&lt;div class=&quot;wrap&quot;&gt;</span><br><span class="line">  &lt;div class=&quot;ele relative&quot;&gt;</span><br><span class="line">    &lt;div class=&quot;ele-inner&quot;&gt;水平垂直居中水平垂直&lt;br&gt;居中水平垂直居中水平&lt;br&gt;垂直居中水平垂直居&lt;br&gt;中水平垂直居中&lt;/div&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/div&gt;&gt;</span><br><span class="line">&lt;/body&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">.wrap&#123;</span><br><span class="line">  position: relative;</span><br><span class="line">  width: 100%;</span><br><span class="line">  height: 200px;</span><br><span class="line">  border:1px solid;</span><br><span class="line">  background-color: #ccc;&#125;</span><br><span class="line">.ele&#123;</span><br><span class="line">    position: absolute;</span><br><span class="line">    left: 50%;</span><br><span class="line">    top: 50%;</span><br><span class="line">    background-color: #333;&#125;</span><br><span class="line">.margin&#123;</span><br><span class="line">      width: 160px;</span><br><span class="line">      height: 100px;</span><br><span class="line">      margin-left: -80px;</span><br><span class="line">      margin-top: -50px;</span><br><span class="line">    &#125;</span><br><span class="line">.translate&#123;</span><br><span class="line">      -webkit-transform:translate3d(-50%, -50%, 0);</span><br><span class="line">      transform:translate3d(-50%, -50%, 0);</span><br><span class="line">    &#125;</span><br><span class="line">.ele-inner&#123;</span><br><span class="line">      position: relative;</span><br><span class="line">      left: -50%;</span><br><span class="line">      top: -50%;</span><br><span class="line">      width: 100%;</span><br><span class="line">      height: 100%;</span><br><span class="line">      background-color: #333;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>原理很简单，就是利用<code>left：50%</code>将盒子的左边先置于父容器的中点，然后再将盒子往左偏移盒子自身宽度的50%。<br>上面三个方法中，<code>margin</code>方法和<code>relative</code>方法都需要知道元素的宽高才行(<code>relative</code>方法只知道高也行)，适用于固定式布局，而<code>transform</code>方法则可以不知道元素宽高。<br><strong>显示效果</strong><br><img src="css布局/5.jpg" alt></p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持pergeryfly</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.png" alt>
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.png" alt>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>

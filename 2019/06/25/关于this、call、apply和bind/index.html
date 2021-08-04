@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+
+  <html class="light page-post">
+
+
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <title>关于this、call、apply和bind | pegerys&#39; Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  
+    <meta name="keywords" content="pergeryfly,前端,设计,Hexo主题,前端开发,用户体验,设计,frontend,design,nodejs,JavaScript">
+  
+
+  <meta name="description" content="1.this1.1 this 到底是什么？this 就是 call 方法传递的 第一个参数，接下来给出转换公式：fn(x) &amp;lt;=&amp;gt; fn.call( undefined , x)在 严格模式(‘use strict’) 下this 就是的 undefined，非严格模式下，浏览器会默认把undefined 变成 windowa.b.c. fn(x) &amp;lt;=&amp;gt; a.b.c. f">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于this、call、apply和bind">
+<meta property="og:url" content="http://yoursite.com/2019/06/25/关于this、call、apply和bind/index.html">
+<meta property="og:site_name" content="pegerys&#39; Hexo">
+<meta property="og:description" content="1.this1.1 this 到底是什么？this 就是 call 方法传递的 第一个参数，接下来给出转换公式：fn(x) &amp;lt;=&amp;gt; fn.call( undefined , x)在 严格模式(‘use strict’) 下this 就是的 undefined，非严格模式下，浏览器会默认把undefined 变成 windowa.b.c. fn(x) &amp;lt;=&amp;gt; a.b.c. f">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2021-07-30T03:04:48.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="关于this、call、apply和bind">
+<meta name="twitter:description" content="1.this1.1 this 到底是什么？this 就是 call 方法传递的 第一个参数，接下来给出转换公式：fn(x) &amp;lt;=&amp;gt; fn.call( undefined , x)在 严格模式(‘use strict’) 下this 就是的 undefined，非严格模式下，浏览器会默认把undefined 变成 windowa.b.c. fn(x) &amp;lt;=&amp;gt; a.b.c. f">
+
+  
+
+  
+    <link rel="icon" href="/images/avatar.jpg">
+  
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
+  
+    <link rel="stylesheet" href="/css/personal-style.css">
+  
+
+  
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+</head>
+</html>
+<body>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-this"><span class="toc-text">1.this</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-this-到底是什么？"><span class="toc-text">1.1 this 到底是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-2-青铜段位的this"><span class="toc-text">1.2.2 青铜段位的this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-3-白银段位的this"><span class="toc-text">1.2.3 白银段位的this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-4-黄金段位的this"><span class="toc-text">1.2.4 黄金段位的this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-5-铂金段位的this"><span class="toc-text">1.2.5 铂金段位的this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-6-钻石段位的this"><span class="toc-text">1.2.6 钻石段位的this</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-7-最强王者的this"><span class="toc-text">1.2.7 最强王者的this</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-call、apply-、bind"><span class="toc-text">2. call、apply 、bind</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-三者异同"><span class="toc-text">2.1 三者异同</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-对于箭头函数"><span class="toc-text">2.2 对于箭头函数</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-关于this、call、apply和bind" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">关于this、call、apply和bind</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.06.25</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>pergery peng</span>
+        </span>
+      
+
+      
+
+
+      
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <h1 id="1-this"><a href="#1-this" class="headerlink" title="1.this"></a>1.this</h1><h2 id="1-1-this-到底是什么？"><a href="#1-1-this-到底是什么？" class="headerlink" title="1.1 this 到底是什么？"></a>1.1 this 到底是什么？</h2><p>this 就是 call 方法传递的 第一个参数，接下来给出转换公式：<br><code>fn(x) &lt;=&gt; fn.call( undefined , x)</code><br>在 严格模式(‘use strict’) 下this 就是的 undefined，非严格模式下，浏览器会默认把undefined 变成 window<br><code>a.b.c. fn(x) &lt;=&gt; a.b.c. fn.call(a.b.c, x)</code><br>this 就是 a.b.c1.2 this 题目分析1.2.1 严格模式与非严格模式下的 this</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">var f1 = function ()&#123;</span><br><span class="line">    &apos;use strict&apos; // 使用严格模式</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">f1() // undefined，不是对象; f1()等价于f1.call(undefinded)</span><br><span class="line">f1.call(null) // null，不是对象</span><br><span class="line">f1.call(5201314) // 5201314, 不是对象</span><br><span class="line">f1.call(true) // true, 不是对象</span><br><span class="line">f1.call(x) // 报错，x 未定义</span><br></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var f1 = function ()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">f1() // window，对象; f1()等价于f1.call(undefinded)</span><br><span class="line">f1.call(null) // window，对象</span><br><span class="line">f1.call(5201314) // 5201314, number对象</span><br><span class="line">f1.call(true) // true, boolean对象</span><br><span class="line">f1.call(x) // 报错，x 未定义</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-2-青铜段位的this"><a href="#1-2-2-青铜段位的this" class="headerlink" title="1.2.2 青铜段位的this"></a>1.2.2 青铜段位的this</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var a = 1</span><br><span class="line">var obj1 = &#123;</span><br><span class="line">a:2,</span><br><span class="line">fn:function()&#123;</span><br><span class="line">console.log(this.a)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">obj1.fn() //2 obj1.fn.call(obj1)，this就是obj1</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-3-白银段位的this"><a href="#1-2-3-白银段位的this" class="headerlink" title="1.2.3 白银段位的this"></a>1.2.3 白银段位的this</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;</span><br><span class="line">foo: function()&#123;</span><br><span class="line">console.log(this)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">var bar = obj.foo</span><br><span class="line">obj.foo() // 转换为 obj.foo.call(obj)，this 就是 obj</span><br><span class="line">bar() // bar.call() =&gt; bar.call(undefined), 结果是 window 对象</span><br><span class="line"></span><br><span class="line">function fn2()&#123;&#125;</span><br><span class="line">function fn ()&#123; console.log(this) &#125;</span><br><span class="line">var arr = [fn, fn2]</span><br><span class="line">arr[0]() // [ƒ, ƒ], this 就是 arr, 相当于arr.0.call(arr)</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-4-黄金段位的this"><a href="#1-2-4-黄金段位的this" class="headerlink" title="1.2.4 黄金段位的this"></a>1.2.4 黄金段位的this</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">button.onclick = function f1()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125; // 看文档，搜索 MDN onclick，文档说给处理器的 this 是触发事件的元素，这里是button</span><br><span class="line"></span><br><span class="line">button.addEventListener(&apos;click&apos;, function()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;) // 看文档，搜索 MDN addEventListener，this是该元素的引用，这里是button</span><br><span class="line"></span><br><span class="line">$(&apos;ul&apos;).on(&apos;click&apos;, &apos;li&apos;, function()&#123;</span><br><span class="line">    console.log(this)</span><br><span class="line">&#125;) // 看文档，搜索jQuery on，当jQuery的调用处理程序时,</span><br><span class="line">//this关键字指向的是当前正在执行事件的元素,这里就是 &apos;li&apos;</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-5-铂金段位的this"><a href="#1-2-5-铂金段位的this" class="headerlink" title="1.2.5 铂金段位的this"></a>1.2.5 铂金段位的this</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">button.onclick = function()&#123;</span><br><span class="line">　　function fn()&#123;</span><br><span class="line">　　　　console.log(this); // 竟然是 window, 蛋疼</span><br><span class="line">　　&#125;</span><br><span class="line">　　fn(); // 其实就是这个函数的执行，等价于 fn.call(undefined)，this 就是undefined</span><br><span class="line">&#125;;</span><br><span class="line">button.onclick = function()&#123;</span><br><span class="line">　　var _this = this; // this 是 button</span><br><span class="line">　　function fn()&#123;</span><br><span class="line">　　　　console.log(_this); // _this 是botton ，将失去的 this 找回了</span><br><span class="line">　　&#125;</span><br><span class="line">　　fn();</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>// 也可以用下面的写法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">button.onclick = function()&#123;</span><br><span class="line">　　var fn = function()&#123;</span><br><span class="line">　　　　console.log(this); //call 传递的this 值</span><br><span class="line">　　&#125;.call(this); // button</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">var obj=&#123;&#125;</span><br><span class="line">obj.fn=function()&#123;</span><br><span class="line">    console.log(this) // obj &#123;fn: function&#125;</span><br><span class="line">    ! function()&#123;</span><br><span class="line">        console.log(this) // window</span><br><span class="line">    &#125;() // 记住一个结论，匿名函数的执行具有全局性，所以传入的是undefined, 所以this是window</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line">obj.fn()</span><br></pre></td></tr></table></figure></p>
+<h2 id="1-2-6-钻石段位的this"><a href="#1-2-6-钻石段位的this" class="headerlink" title="1.2.6 钻石段位的this"></a>1.2.6 钻石段位的this</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">var obj=&#123;</span><br><span class="line">    fn:function()&#123;</span><br><span class="line">        setTimeout(function()&#123;</span><br><span class="line">            console.log(this);</span><br><span class="line">        &#125;，100);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn();//window</span><br><span class="line">// 记住一个结论:</span><br><span class="line">// this出现在全局函数setTimeout()中，在setTimeout的延迟函数(非箭头函数)内，this指向 window</span><br><span class="line"></span><br><span class="line">var obj=&#123;</span><br><span class="line">    fn:function()&#123;</span><br><span class="line">        console.log(this) // obj</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">            console.log(this); // 就是外面的 this: obj</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">obj.fn(); // 箭头函数中的 this 就是外面的this，这句话很重要</span><br></pre></td></tr></table></figure>
+<h2 id="1-2-7-最强王者的this"><a href="#1-2-7-最强王者的this" class="headerlink" title="1.2.7 最强王者的this"></a>1.2.7 最强王者的this</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">function X()&#123;</span><br><span class="line">return object = &#123;</span><br><span class="line">name: &apos;object&apos;,</span><br><span class="line">options: null,</span><br><span class="line">f1(x)&#123;</span><br><span class="line">this.options = x // 第2步：这个x是第一步传递的options，this是第一步的call的</span><br><span class="line">this.f2() //第一个参数 x(外面的x),它是由x = X()决定, 就是X()的返回值，object</span><br><span class="line">&#125;,</span><br><span class="line">f2()&#123;</span><br><span class="line">this.options.f2.call(this) // 第3步：第一个this 是object, 第二个this 也是object</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var options = &#123;</span><br><span class="line">name: &apos;options&apos;,</span><br><span class="line">f1()&#123;&#125;,</span><br><span class="line">f2()&#123;</span><br><span class="line">console.log(this) // 第4步：这个this是第3步传进来的this, object</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var x = X()</span><br><span class="line">x.f1(options) // object，第1步：改写 x.f1.call(x, options)</span><br></pre></td></tr></table></figure>
+<p>再也不想看到this了。。。</p>
+<h1 id="2-call、apply-、bind"><a href="#2-call、apply-、bind" class="headerlink" title="2. call、apply 、bind"></a>2. call、apply 、bind</h1><h2 id="2-1-三者异同"><a href="#2-1-三者异同" class="headerlink" title="2.1 三者异同"></a>2.1 三者异同</h2><p>它们都是用来改变 this 的指向的<br>call()和apply()功能相同，唯一不同的是传参的时候call第二个参数只能传递参数列表，而apply可以是列表也可以是arguments或数组<br>使用call和apply会直接执行这个函数，而bind并不直接执行，而是将绑定好的this重新返回一个新函数，什么时候调用由你自己决定，bind的传参方式和call相同</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">function f(a, b) &#123;</span><br><span class="line">console.log(this)</span><br><span class="line">console.log(a)</span><br><span class="line">console.log(b)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">f() //window, undefined, undefined</span><br><span class="line"></span><br><span class="line">/*call*/</span><br><span class="line">f.call(&apos;a&apos;, 2, 3) //&apos;a&apos;, 2, 3</span><br><span class="line">f.call(&apos;a&apos;, 2) //&apos;a&apos;, 2, undefined</span><br><span class="line">f.call() //window, undefined, undefined</span><br><span class="line"></span><br><span class="line">/*apply*/</span><br><span class="line">f.apply(&apos;a&apos;, [2, 3]) //&apos;a&apos;, 2, 3</span><br><span class="line">f.apply(&apos;a&apos;, [2]) //&apos;a&apos;, 2</span><br><span class="line">f.apply() //window, undefined, undefined</span><br><span class="line"></span><br><span class="line">/*bind*/</span><br><span class="line">nf = f.bind(&apos;a&apos;, 2, 3) //bind方法返回一个新函数</span><br><span class="line">nf() // &apos;a&apos;, 2, 3</span><br><span class="line">nf = f.bind(&apos;a&apos;, 2)</span><br><span class="line">nf() // &apos;a&apos;, 2，undefined</span><br><span class="line">nf = f.bind(&apos;a&apos;)</span><br><span class="line">nf() // &apos;a&apos;, undefined, undefined</span><br><span class="line">nf = f.bind()</span><br><span class="line">nf() // window, undefined, undefined</span><br></pre></td></tr></table></figure>
+<h2 id="2-2-对于箭头函数"><a href="#2-2-对于箭头函数" class="headerlink" title="2.2 对于箭头函数"></a>2.2 对于箭头函数</h2><p>箭头函数会捕获其所在上下文的 this 值，作为自己的 this 值<br>扩展： 箭头函数和普通函数的区别<br>箭头函数不能使用 new 命令，它作为匿名函数是不能成为构造函数的<br>箭头函数没有 arguments 对象，但是可以用 Rest 参数代替</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var fn = (...x)=&gt;&#123; // ...x 即为rest参数</span><br><span class="line">console.log(x);</span><br><span class="line">&#125;</span><br><span class="line">fn(1, true, function()&#123;&#125;) // [1, true, ƒ]</span><br></pre></td></tr></table></figure>
+<p>不可以使用 yield 命令, 因此箭头函数不能用作 Generator 函数<br>通过 call() 或 apply() 方法调用时，只是传入了参数而已，对 this并没有什么影响<br>箭头函数没有原型属性</p>
+
+    
+  </div>
+
+</article>
+
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持pergeryfly</div>
+        <ul>
+        
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.png" alt>
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.png" alt>
+          </li>
+        
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+   
+
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
+    </div>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
+          </li>
+        
+      </ul>
+
+    </div>
+  </div>
+</div>
+
+
+
+  
+      <div class="fexo-comments comments-post">
+    
+
+    
+
+    
+    
+
+    
+
+    
+    
+
+    
+
+  </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</body>
+</html>
