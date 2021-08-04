@@ -1,12 +1,20 @@
 <!DOCTYPE html>
-<html>
+
+
+  <html class="light page-post">
+
+
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
+  <title>JS数据类型 | pegerys&#39; Hexo</title>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
   
-  <title>JS数据类型 | pegerys&#39; Hexo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="JS,">
+  
+
   <meta name="description" content="JS共有七种数据类型：number、string、boolean、symbol、underfined、null，以及object。这其中boolean类型不常用，不做赘述，这次对其他6种数据类型总结一波。 1.分类从不同角度对6种数据类型进行分类： 2.判断1.typeoftypeof返回一个表示数据类型的字符串。返回结果包括number、string、boolean、underfined、nul">
 <meta name="keywords" content="JS">
 <meta property="og:type" content="article">
@@ -21,79 +29,187 @@
 <meta name="twitter:title" content="JS数据类型">
 <meta name="twitter:description" content="JS共有七种数据类型：number、string、boolean、symbol、underfined、null，以及object。这其中boolean类型不常用，不做赘述，这次对其他6种数据类型总结一波。 1.分类从不同角度对6种数据类型进行分类： 2.判断1.typeoftypeof返回一个表示数据类型的字符串。返回结果包括number、string、boolean、underfined、nul">
 <meta name="twitter:image" content="http://yoursite.com/2019/04/14/JS数据类型/1.png">
+
   
-    <link rel="alternate" href="/atom.xml" title="pegerys&#39; Hexo" type="application/atom+xml">
+
   
+    <link rel="icon" href="/favicon.ico">
   
-    <link rel="icon" href="/favicon.png">
+
+  <link href="/css/styles.css?v=c114cbeddx" rel="stylesheet">
+
+
   
+    <link rel="stylesheet" href="/css/personal-style.css">
   
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
   
-  <link rel="stylesheet" href="/css/style.css">
+<!-- Google Analytics -->
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-38189205-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics -->
+
+
+  
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?57e94d016e201fba3603a8a2b0263af0";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+  
+  <script type="text/javascript">
+	(function(){
+	    var bp = document.createElement('script');
+	    var curProtocol = window.location.protocol.split(':')[0];
+	    if (curProtocol === 'https') {
+	        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+	    }
+	    else {
+	        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+	    }
+	    var s = document.getElementsByTagName("script")[0];
+	    s.parentNode.insertBefore(bp, s);
+	})();
+  </script>
+
+
+
+  
+    <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
 </head>
 </html>
 <body>
-  <div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">pegerys&#39; Hexo</a>
-      </h1>
+
+
+  
+    <span id="toolbox-mobile" class="toolbox-mobile">盒子</span>
+  
+
+  <div class="post-header CENTER">
+   
+  <div class="toolbox">
+    <a class="toolbox-entry" href="/">
+      <span class="toolbox-entry-text">盒子</span>
+      <i class="icon-angle-down"></i>
+      <i class="icon-home"></i>
+    </a>
+    <ul class="list-toolbox">
       
-    </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
-    </div>
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+            博客
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+            分类
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+            标签
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+            友链
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+            关于
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+            RSS
+          </a>
+        </li>
+      
+        <li class="item-toolbox">
+          <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+            搜索
+          </a>
+        </li>
+      
+    </ul>
   </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="post-JS数据类型" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/04/14/JS数据类型/" class="article-date">
-  <time datetime="2019-04-14T08:11:22.000Z" itemprop="datePublished">2019-04-14</time>
-</a>
-    
-  <div class="article-category">
+
+
+</div>
+
+
+  <div id="toc" class="toc-article">
+    <strong class="toc-title">文章目录</strong>
+    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-分类"><span class="toc-text">1.分类</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-判断"><span class="toc-text">2.判断</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-typeof"><span class="toc-text">1.typeof</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-instanceof"><span class="toc-text">2.instanceof</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-delete"><span class="toc-text">3.delete</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-forin"><span class="toc-text">4.forin</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-类型转换"><span class="toc-text">3.类型转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-任意类型转字符串"><span class="toc-text">1.任意类型转字符串</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-任意类型转数字"><span class="toc-text">2.任意类型转数字</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-任意类型转布尔"><span class="toc-text">3.任意类型转布尔</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-内存图"><span class="toc-text">4.内存图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-深拷贝与浅拷贝"><span class="toc-text">5.深拷贝与浅拷贝</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-对于简单类型来说，复制就是深拷贝。"><span class="toc-text">1.对于简单类型来说，复制就是深拷贝。</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-对于复杂类型的数据（对象）来说。才要区分浅拷贝和深拷贝。"><span class="toc-text">2.对于复杂类型的数据（对象）来说。才要区分浅拷贝和深拷贝。</span></a></li></ol></li></ol>
+  </div>
+
+
+
+<div class="content content-post CENTER">
+   <article id="post-JS数据类型" class="article article-type-post" itemprop="blogPost">
+  <header class="article-header">
+    <h1 class="post-title">JS数据类型</h1>
+
+    <div class="article-meta">
+      <span>
+        <i class="icon-calendar"></i>
+        <span>2019.04.14</span>
+      </span>
+
+      
+        <span class="article-author">
+          <i class="icon-user"></i>
+          <span>pergery peng</span>
+        </span>
+      
+
+      
+  <span class="article-category">
+    <i class="icon-list"></i>
     <a class="article-category-link" href="/categories/JS/">JS</a>
-  </div>
+  </span>
 
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      JS数据类型
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
+
       
-        <p>JS共有七种数据类型：number、string、boolean、symbol、underfined、null，以及object。这其中boolean类型不常用，不做赘述，这次对其他6种数据类型总结一波。</p>
+
+      
+      <i class="fa fa-eye"></i> 
+        <span id="busuanzi_container_page_pv">
+           &nbsp热度 <span id="busuanzi_value_page_pv">
+           <i class="fa fa-spinner fa-spin"></i></span>℃
+        </span>
+      
+      
+    </div>
+  </header>
+
+  <div class="article-content">
+    
+      <p>JS共有七种数据类型：number、string、boolean、symbol、underfined、null，以及object。这其中boolean类型不常用，不做赘述，这次对其他6种数据类型总结一波。</p>
 <h1 id="1-分类"><a href="#1-分类" class="headerlink" title="1.分类"></a>1.分类</h1><p>从不同角度对6种数据类型进行分类：<br><img src="./1.png" alt="img"></p>
 <h1 id="2-判断"><a href="#2-判断" class="headerlink" title="2.判断"></a>2.判断</h1><h2 id="1-typeof"><a href="#1-typeof" class="headerlink" title="1.typeof"></a>1.typeof</h2><p>typeof返回一个表示数据类型的字符串。返回结果包括number、string、boolean、underfined、null，以及object。typeof可以对基本类型number、string  、boolean、undefined做出准确的判断（null除外，typeof null===“object”，这是由于历史的原因，我就不巴拉巴拉了，其实我也说不清楚😢）；而对于引用类型，除了function之外返回的都是object。但当我们需要知道某个对象的具体类型时，typeof就显得有些力不从心了</p>
 <h2 id="2-instanceof"><a href="#2-instanceof" class="headerlink" title="2.instanceof"></a>2.instanceof</h2><p>当我们需要知道某个对象的具体类型时,可以用运算符 <code>instanceof，instanceof</code>操作符判断左操作数对象的原型链上是否有右边这个构造函数的<code>prototype</code>属性，也就是说指定对象是否是某个构造函数的实例，最后返回布尔值。 检测的我们用一段伪代码来模拟instanceof内部执行过程：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">instanceof (A,B) = &#123;</span><br><span class="line">    var L = A.__proto__;</span><br><span class="line">    var R = B.prototype;</span><br><span class="line">    if(L === R) &#123;</span><br><span class="line">        //A的内部属性__proto__指向B的原型对象</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    return false;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -113,148 +229,199 @@
 <p>这里对b进行更改后，a也随之变化，这就是典型的浅拷贝。<br>对于深拷贝而言，对b进行更改，a不会产生变化，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var a = &#123;name: &apos;frank&apos;&#125;</span><br><span class="line">var b = deepClone(a) // deepClone 还不知道怎么实现</span><br><span class="line">b.name = &apos;b&apos;</span><br><span class="line">a.name === &apos;frank&apos; // true</span><br></pre></td></tr></table></figure></p>
 <p>这就是典型的深拷贝了。</p>
 
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/04/14/JS数据类型/" data-id="ckrwxz89e0000mwv0tk23vniw" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JS/">JS</a></li></ul>
-
-    </footer>
-  </div>
-  
     
-<nav id="article-nav">
-  
-    <a href="/2019/04/14/原型与原型链/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          原型与原型链
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/03/19/hexo重装/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">hexo重装</div>
-    </a>
-  
-</nav>
+  </div>
 
-  
 </article>
 
-</section>
+
+   
+  <div class="text-center donation">
+    <div class="inner-donation">
+      <span class="btn-donation">支持一下</span>
+      <div class="donation-body">
+        <div class="tip text-center">扫一扫，支持forsigner</div>
+        <ul>
         
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Categories</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/JS/">JS</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/JS-原型链/">JS 原型链</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/MVVM/">MVVM</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/ajax/">ajax</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/git/">git</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/hexo/">hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/jQuery/">jQuery</a></li></ul>
+          <li class="item">
+            
+              <span>微信扫一扫</span>
+            
+            <img src="/images/qr-wechat.png" alt>
+          </li>
+        
+          <li class="item">
+            
+              <span>支付宝扫一扫</span>
+            
+            <img src="/images/qr-alipay.png" alt>
+          </li>
+        
+        </ul>
+      </div>
     </div>
   </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/JS/">JS</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MVVM/">MVVM</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ajax/">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/cat/">cat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/gitbash/">gitbash</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo-git-npm/">hexo git npm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jQuery/">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ls/">ls</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mv/">mv</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/touch/">touch</a></li></ul>
-    </div>
+   
+  <div class="box-prev-next clearfix">
+    <a class="show pull-left" href="/2019/03/19/hexo重装/">
+        <i class="icon icon-angle-left"></i>
+    </a>
+    <a class="show pull-right" href="/2019/04/14/原型与原型链/">
+        <i class="icon icon-angle-right"></i>
+    </a>
   </div>
 
 
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/JS/" style="font-size: 20px;">JS</a> <a href="/tags/MVVM/" style="font-size: 10px;">MVVM</a> <a href="/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/tags/cat/" style="font-size: 10px;">cat</a> <a href="/tags/gitbash/" style="font-size: 10px;">gitbash</a> <a href="/tags/hexo-git-npm/" style="font-size: 10px;">hexo git npm</a> <a href="/tags/jQuery/" style="font-size: 10px;">jQuery</a> <a href="/tags/ls/" style="font-size: 10px;">ls</a> <a href="/tags/mv/" style="font-size: 10px;">mv</a> <a href="/tags/touch/" style="font-size: 10px;">touch</a>
+
+
+</div>
+
+
+  <a id="backTop" class="back-top">
+    <i class="icon-angle-up"></i>
+  </a>
+
+
+
+
+  <div class="modal" id="modal">
+  <span id="cover" class="cover hide"></span>
+  <div id="modal-dialog" class="modal-dialog hide-dialog">
+    <div class="modal-header">
+      <span id="close" class="btn-close">关闭</span>
     </div>
-  </div>
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Archives</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2021/08/">August 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">June 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/05/">May 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">April 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">January 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/12/">December 2018</a></li></ul>
-    </div>
-  </div>
-
-
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">Recent Posts</h3>
-    <div class="widget">
-      <ul>
+    <hr>
+    <div class="modal-body">
+      <ul class="list-toolbox">
         
-          <li>
-            <a href="/2021/08/04/修复后的第一篇blog/">修复后的第一篇blog</a>
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/archives/" rel="noopener noreferrer" target="_self">
+              博客
+            </a>
           </li>
         
-          <li>
-            <a href="/2019/06/25/关于this、call、apply和bind/">关于this、call、apply和bind</a>
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/category/" rel="noopener noreferrer" target="_self">
+              分类
+            </a>
           </li>
         
-          <li>
-            <a href="/2019/06/19/MVVM发展历程/">MVVM发展历程</a>
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/tag/" rel="noopener noreferrer" target="_self">
+              标签
+            </a>
           </li>
         
-          <li>
-            <a href="/2019/06/03/ajax/">ajax</a>
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/link/" rel="noopener noreferrer" target="_self">
+              友链
+            </a>
           </li>
         
-          <li>
-            <a href="/2019/06/02/環境搭建/">環境搭建</a>
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/about/" rel="noopener noreferrer" target="_self">
+              关于
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/atom.xml" rel="noopener noreferrer" target="_blank">
+              RSS
+            </a>
+          </li>
+        
+          <li class="item-toolbox">
+            <a class="CIRCLE" href="/search/" rel="noopener noreferrer" target="_self">
+              搜索
+            </a>
           </li>
         
       </ul>
+
     </div>
   </div>
+</div>
+
+
 
   
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2021 pergery peng<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
+      <div class="fexo-comments comments-post">
     
 
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+    
 
+    
+    
 
-  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
-  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+    
 
+    
+    
 
-<script src="/js/script.js"></script>
+    
+
+<!-- Gitalk评论插件通用代码 -->
+<div id="gitalk-container"></div>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.js"></script>
+<script>
+const gitalk = new Gitalk({
+  clientID: '277317290454635afa73',
+  clientSecret: '78223c859304da5e8d71bfce136d436c6ff95c37',
+  repo: 'blog-comment',
+  owner: 'forsigner',
+  // 在这里设置一下截取前50个字符串, 这是因为 github 对 label 的长度有了要求, 如果超过
+  // 50个字符串则会报错.
+  // id: location.pathname.split('/').pop().substring(0, 49),
+  id: md5(location.pathname),
+  admin: ['forsigner'],
+  // facebook-like distraction free mode
+  distractionFreeMode: false
+})
+gitalk.render('gitalk-container')
+</script>
+<!-- Gitalk代码结束 -->
 
 
 
   </div>
+
+  
+
+  <script type="text/javascript">
+  function loadScript(url, callback) {
+    var script = document.createElement('script')
+    script.type = 'text/javascript';
+
+    if (script.readyState) { //IE
+      script.onreadystatechange = function() {
+        if (script.readyState == 'loaded' ||
+          script.readyState == 'complete') {
+          script.onreadystatechange = null;
+          callback();
+        }
+      };
+    } else { //Others
+      script.onload = function() {
+        callback();
+      };
+    }
+
+    script.src = url;
+    document.getElementsByTagName('head')[0].appendChild(script);
+  }
+
+  window.onload = function() {
+    loadScript('/js/bundle.js?235683', function() {
+      // load success
+    });
+  }
+</script>
+
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
