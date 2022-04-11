@@ -6,7 +6,7 @@ tags:
 # 创建版本库
 ## 创建空目录
 创建空目录，并进入。
-## 在gitbush上输入git init
+## 在gitbash上输入git init
 ![正常](Git入门/1.jpg)
 通过git init 命令将次目录变成Git可以管理的仓库
 注 ：此时会发现多了一个.git 目录，此目录用来管理版本库。
